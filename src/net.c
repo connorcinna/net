@@ -24,7 +24,7 @@ ssize_t send_data_tcp(char* data, char* ip_addr, int port, int* sockfd)
 	return sendto((*sockfd), data, sizeof(data), 0, (struct sockaddr*) &dest, sizeof(dest));
 }
 
-char* receive_data_tcp(ssize_t expected, int sockfd)
+const char* receive_data_tcp(ssize_t expected, int sockfd)
 {
 	char buf[expected];
 	memset(buf, 0, sizeof(buf));
@@ -36,7 +36,7 @@ char* receive_data_tcp(ssize_t expected, int sockfd)
 	return strndup(buf, rcvd);
 }
 
-char* http_get(const char* url, const char* path)
+const char* http_get(const char* url, const char* path)
 {
 	size_t request_len = strlen(GET) + 1 + strlen(path) + 1 + strlen(HTTP_HEADER)
 		+ 1 + strlen(HOST) + 2 + strlen(url) + 1;

@@ -25,10 +25,10 @@ ssize_t send_data_tcp(char* data, char* ip_addr, int port, int* sockfd);
 //Receive TCP data on an opened socket.
 // expected : the size expected to be received as payload
 // sockfd : an already opened TCP socket file descriptor that was created by send_data_tcp
-char* receive_data_tcp(ssize_t expected, int sockfd);
+const char* receive_data_tcp(ssize_t expected, int sockfd);
 
 //Make an HTTP GET request.
 //url : a website URL that resolves, such as www.google.com
 //path : the path to send the data to, such as /
-char* http_get(const char* url, const char* path);
+const char* http_get(const char* url, const char* path);
 
